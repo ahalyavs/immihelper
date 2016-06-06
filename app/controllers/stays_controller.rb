@@ -3,7 +3,8 @@ class StaysController < ApplicationController
   require 'date'
 
   def index
-    @stays = Stay.all
+    @q = Stay.ransack(params[:q])
+    @stays = @q.result
   end
 
   def show
