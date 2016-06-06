@@ -1,0 +1,109 @@
+<!-- Validation failure messages -->
+<% if @stay.errors.any? %>
+  <% @stay.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Stay #<%= @stay.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_stay/<%= @stay.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @stay.user_id %>">
+      </div>
+
+      <!-- Label and input for visa_status -->
+      <div class="form-group">
+        <label for="visa_status" class="control-label">
+          Visa status
+        </label>
+
+        <input type="text" id="visa_status" name="visa_status" placeholder="Visa status" class="form-control" value="<%= @stay.visa_status %>">
+      </div>
+
+      <!-- Label and input for reason -->
+      <div class="form-group">
+        <label for="reason" class="control-label">
+          Reason
+        </label>
+
+        <input type="text" id="reason" name="reason" placeholder="Reason" class="form-control" value="<%= @stay.reason %>">
+      </div>
+
+      <!-- Label and input for port_of_entry -->
+      <div class="form-group">
+        <label for="port_of_entry" class="control-label">
+          Port of entry
+        </label>
+
+        <input type="text" id="port_of_entry" name="port_of_entry" placeholder="Port of entry" class="form-control" value="<%= @stay.port_of_entry %>">
+      </div>
+
+      <!-- Label and input for port_of_exit -->
+      <div class="form-group">
+        <label for="port_of_exit" class="control-label">
+          Port of exit
+        </label>
+
+        <input type="text" id="port_of_exit" name="port_of_exit" placeholder="Port of exit" class="form-control" value="<%= @stay.port_of_exit %>">
+      </div>
+
+      <!-- Label and input for days -->
+      <div class="form-group">
+        <label for="days" class="control-label">
+          Days
+        </label>
+
+        <input type="text" id="days" name="days" placeholder="Days" class="form-control" value="<%= @stay.days %>">
+      </div>
+
+      <!-- Label and input for entry_date -->
+      <div class="form-group">
+        <label for="entry_date" class="control-label">
+          Entry date
+        </label>
+
+        <input type="text" id="entry_date" name="entry_date" placeholder="Entry date" class="form-control" value="<%= @stay.entry_date %>">
+      </div>
+
+      <!-- Label and input for exit_date -->
+      <div class="form-group">
+        <label for="exit_date" class="control-label">
+          Exit date
+        </label>
+
+        <input type="text" id="exit_date" name="exit_date" placeholder="Exit date" class="form-control" value="<%= @stay.exit_date %>">
+      </div>
+
+      <!-- Label and input for username -->
+      <div class="form-group">
+        <label for="username" class="control-label">
+          Username
+        </label>
+
+        <input type="text" id="username" name="username" placeholder="Username" class="form-control" value="<%= @stay.username %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Stay
+      </button>
+      or
+      <a href="/stays/<%= @stay.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

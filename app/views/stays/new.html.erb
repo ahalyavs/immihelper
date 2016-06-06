@@ -1,0 +1,102 @@
+<!-- Validation failure messages -->
+<% if @stay.errors.any? %>
+  <% @stay.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Stay</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_stay" method="post" >
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <input type="hidden" id="user_id" name="user_id" value="<%= @stay.user_id %>">
+      </div>
+
+      <!-- Label and input for entry_date -->
+      <div class="form-group">
+        <label for="entry_date" class="control-label">
+          Date of entry into the US
+        </label>
+
+        <input type="text" id="entry_date" name="entry_date" placeholder="mm/dd/yyyy" class="form-control">
+      </div>
+
+      <!-- Label and input for port_of_entry -->
+      <div class="form-group">
+        <label for="port_of_entry" class="control-label">
+          Port of entry
+        </label>
+
+        <input type="text" id="port_of_entry" name="port_of_entry" placeholder="City" class="form-control">
+      </div>
+
+      <!-- Label and input for exit_date -->
+      <div class="form-group">
+        <label for="exit_date" class="control-label">
+          Date of exit from the US
+        </label>
+
+        <input type="text" id="exit_date" name="exit_date" placeholder="mm/dd/yyyy" class="form-control">
+      </div>
+
+      <!-- Label and input for port_of_exit -->
+      <div class="form-group">
+        <label for="port_of_exit" class="control-label">
+          Port of exit
+        </label>
+
+        <input type="text" id="port_of_exit" name="port_of_exit" placeholder="City" class="form-control">
+      </div>
+
+      <!-- Label and input for reason -->
+      <div class="form-group">
+        <label for="reason" class="control-label">
+          Reason for visit
+        </label>
+
+        <input type="text" id="reason" name="reason" placeholder="Reason for visit" class="form-control">
+      </div>
+
+      <!-- Label and input for visa_status -->
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="visa_status" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Visa status
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="visa_status">
+          <li>A-1, A-2, A-3</li>
+          <li>B-1, B-2</li>
+          <li>C Transit Visa</li>
+          <li>D</li>
+          <li>E-1, E-2, E-3</li>
+          <li>F-1, F-2, F-3</li>
+          <li>DG-1, G-2, G-3, G-4, G-5</li>
+          <li>DH-1B, H-1B1, H-1C, H-2A, H-2B, H-3, H-4</li>
+          <li>I</li>
+          <li>J-1, J-2</li>
+          <li>K-1, K-2, K-3, K-4</li>
+          <li>L-1, L-2</li>
+          <li>M-1, M-2, M-3</li>
+          <li>Other</li>
+        </ul>
+      </div>
+
+      <button class="btn btn-success">
+        Create Stay
+      </button>
+      or
+      <a href="/stays">Cancel</a>
+    </form>
+  </div>
+</div>

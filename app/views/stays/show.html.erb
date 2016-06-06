@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h3>Stay #<%= @stay.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Entry date</dt>
+      <dd><%= @stay.entry_date %></dd>
+
+      <dt>Port of entry</dt>
+      <dd><%= @stay.port_of_entry %></dd>
+
+      <dt>Exit date</dt>
+      <dd><%= @stay.exit_date %></dd>
+
+      <dt>Port of exit</dt>
+      <dd><%= @stay.port_of_exit %></dd>
+
+      <dt>Number of days</dt>
+      <dd><%= @stay.days %></dd>
+
+      <dt>Reason</dt>
+      <dd><%= @stay.reason %></dd>
+
+      <dt>Visa status</dt>
+      <dd><%= @stay.visa_status %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/stays" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/stays/<%= @stay.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_stay/<%= @stay.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

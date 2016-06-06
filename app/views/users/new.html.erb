@@ -1,0 +1,109 @@
+<!-- Validation failure messages -->
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add User</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_user" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for username -->
+      <div class="form-group">
+        <label for="username" class="control-label">
+          Username
+        </label>
+
+        <input type="text" id="username" name="username" placeholder="Username" class="form-control" value="<%= @user.username %>">
+      </div>
+
+      <!-- Label and input for firstname -->
+      <div class="form-group">
+        <label for="firstname" class="control-label">
+          Firstname
+        </label>
+
+        <input type="text" id="firstname" name="firstname" placeholder="Firstname" class="form-control" value="<%= @user.firstname %>">
+      </div>
+
+      <!-- Label and input for middlename -->
+      <div class="form-group">
+        <label for="middlename" class="control-label">
+          Middlename
+        </label>
+
+        <input type="text" id="middlename" name="middlename" placeholder="Middlename" class="form-control" value="<%= @user.middlename %>">
+      </div>
+
+      <!-- Label and input for lastname -->
+      <div class="form-group">
+        <label for="lastname" class="control-label">
+          Lastname
+        </label>
+
+        <input type="text" id="lastname" name="lastname" placeholder="Lastname" class="form-control" value="<%= @user.lastname %>">
+      </div>
+
+      <!-- Label and input for password -->
+      <div class="form-group">
+        <label for="password" class="control-label">
+          Password
+        </label>
+
+        <input type="text" id="password" name="password" placeholder="Password" class="form-control" value="<%= @user.password %>">
+      </div>
+
+      <!-- Label and input for dob -->
+      <div class="form-group">
+        <label for="dob" class="control-label">
+          Dob
+        </label>
+
+        <input type="text" id="dob" name="dob" placeholder="Dob" class="form-control" value="<%= @user.dob %>">
+      </div>
+
+      <!-- Label and input for email -->
+      <div class="form-group">
+        <label for="email" class="control-label">
+          Email
+        </label>
+
+        <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @user.email %>">
+      </div>
+
+      <!-- Label and input for phone -->
+      <div class="form-group">
+        <label for="phone" class="control-label">
+          Phone
+        </label>
+
+        <input type="text" id="phone" name="phone" placeholder="Phone" class="form-control" value="<%= @user.phone %>">
+      </div>
+
+      <!-- Label and input for nationality -->
+      <div class="form-group">
+        <label for="nationality" class="control-label">
+          Nationality
+        </label>
+
+        <input type="text" id="nationality" name="nationality" placeholder="Nationality" class="form-control" value="<%= @user.nationality %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create User
+      </button>
+      or
+      <a href="/users">Cancel</a>
+    </form>
+  </div>
+</div>

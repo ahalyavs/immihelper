@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h1>
+    Stays
+    <a href="/stays/new" class="btn btn-lg btn-success">New Stay</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Entry date</th>
+        <th>Port of entry</th>
+        <th>Exit date</th>
+        <th>Port of exit</th>
+        <th>Days</th>
+        <th>Reason</th>
+        <th>Visa status</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @stays.each do |stay| %>
+      <tr>
+        <td><%= stay.entry_date %></td>
+        <td><%= stay.port_of_entry %></td>
+        <td><%= stay.exit_date %></td>
+        <td><%= stay.port_of_exit %></td>
+        <td><%= stay.days %></td>
+        <td><%= stay.reason %></td>
+        <td><%= stay.visa_status %></td>
+        <td>
+          <a href="/stays/<%= stay.id %>" class="btn btn-primary">Show</a>
+          <a href="/stays/<%= stay.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_stay/<%= stay.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
