@@ -12,6 +12,9 @@ class UsersController < ApplicationController
   end
 
   def create
+
+    @countries = Country.all
+
     @user = User.new
     @user.username = params[:username]
     @user.firstname = params[:firstname]
@@ -24,7 +27,7 @@ class UsersController < ApplicationController
     @user.nationality = params[:nationality]
 
     if @user.save
-      redirect_to "/users", :notice => "User created successfully."
+      redirect_to "/stays", :notice => "User created successfully."
     else
       render 'new'
     end
@@ -48,7 +51,7 @@ class UsersController < ApplicationController
     @user.nationality = params[:nationality]
 
     if @user.save
-      redirect_to "/users", :notice => "User updated successfully."
+      redirect_to "/stays", :notice => "User updated successfully."
     else
       render 'edit'
     end

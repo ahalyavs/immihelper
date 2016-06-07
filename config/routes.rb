@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   get "/delete_stay/:id", :controller => "stays", :action => "destroy"
   #------------------------------
 
+  #Welcome page
+  get "/welcome", :controller => "landing", :action => "welcome"
+
+  #users
   devise_for :users
   root 'stays#index'
 

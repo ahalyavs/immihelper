@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :first_name
     devise_parameter_sanitizer.for(:sign_up) << :last_name
     devise_parameter_sanitizer.for(:sign_up) << :dob
-    devise_parameter_sanitizer.for(:sign_up) << :phone
     devise_parameter_sanitizer.for(:sign_up) << :nationality
 
     devise_parameter_sanitizer.for(:account_update) << :password
@@ -21,7 +20,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :first_name
     devise_parameter_sanitizer.for(:account_update) << :last_name
     devise_parameter_sanitizer.for(:account_update) << :dob
-    devise_parameter_sanitizer.for(:account_update) << :phone
     devise_parameter_sanitizer.for(:account_update) << :nationality
 
   end

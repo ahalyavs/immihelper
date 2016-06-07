@@ -1,10 +1,8 @@
 class StaysController < ApplicationController
-
-  require 'date'
-
   def index
     @q = Stay.ransack(params[:q])
     @stays = @q.result
+    render 'index'
   end
 
   def show
@@ -18,14 +16,14 @@ class StaysController < ApplicationController
   def create
     @stay = Stay.new
     @stay.user_id = params[:user_id]
+    @stay.notes = params[:notes]
     @stay.visa_status = params[:visa_status]
-    @stay.reason = params[:reason]
-    @stay.port_of_entry = params[:port_of_entry]
+    @stay.reason_for_stay = params[:reason_for_stay]
     @stay.port_of_exit = params[:port_of_exit]
-    @stay.entry_date = params[:entry_date]
+    @stay.port_of_entry = params[:port_of_entry]
     @stay.exit_date = params[:exit_date]
-    # @stay.days = (@stay.exit_date - @stay.entry_date).to_i
-    @stay.username = params[:username]
+    @stay.entry_date = params[:entry_date]
+    @stay.number_of_days = @stay.exit_date - @stay.entry_date
 
     if @stay.save
       redirect_to "/stays", :notice => "Stay created successfully."
@@ -42,14 +40,14 @@ class StaysController < ApplicationController
     @stay = Stay.find(params[:id])
 
     @stay.user_id = params[:user_id]
+    @stay.notes = params[:notes]
     @stay.visa_status = params[:visa_status]
-    @stay.reason = params[:reason]
-    @stay.port_of_entry = params[:port_of_entry]
+    @stay.reason_for_stay = params[:reason_for_stay]
     @stay.port_of_exit = params[:port_of_exit]
-    @stay.days = params[:days]
-    @stay.entry_date = params[:entry_date]
+    @stay.port_of_entry = params[:port_of_entry]
+    @stay.number_of_days = params[:number_of_days]
     @stay.exit_date = params[:exit_date]
-    @stay.username = params[:username]
+    @stay.entry_date = params[:entry_date]
 
     if @stay.save
       redirect_to "/stays", :notice => "Stay updated successfully."

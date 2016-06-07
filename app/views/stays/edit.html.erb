@@ -27,6 +27,15 @@
         <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @stay.user_id %>">
       </div>
 
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="<%= @stay.notes %>">
+      </div>
+
       <!-- Label and input for visa_status -->
       <div class="form-group">
         <label for="visa_status" class="control-label">
@@ -36,22 +45,13 @@
         <input type="text" id="visa_status" name="visa_status" placeholder="Visa status" class="form-control" value="<%= @stay.visa_status %>">
       </div>
 
-      <!-- Label and input for reason -->
+      <!-- Label and input for reason_for_stay -->
       <div class="form-group">
-        <label for="reason" class="control-label">
-          Reason
+        <label for="reason_for_stay" class="control-label">
+          Reason for stay
         </label>
 
-        <input type="text" id="reason" name="reason" placeholder="Reason" class="form-control" value="<%= @stay.reason %>">
-      </div>
-
-      <!-- Label and input for port_of_entry -->
-      <div class="form-group">
-        <label for="port_of_entry" class="control-label">
-          Port of entry
-        </label>
-
-        <input type="text" id="port_of_entry" name="port_of_entry" placeholder="Port of entry" class="form-control" value="<%= @stay.port_of_entry %>">
+        <input type="text" id="reason_for_stay" name="reason_for_stay" placeholder="Reason for stay" class="form-control" value="<%= @stay.reason_for_stay %>">
       </div>
 
       <!-- Label and input for port_of_exit -->
@@ -63,22 +63,22 @@
         <input type="text" id="port_of_exit" name="port_of_exit" placeholder="Port of exit" class="form-control" value="<%= @stay.port_of_exit %>">
       </div>
 
-      <!-- Label and input for days -->
+      <!-- Label and input for port_of_entry -->
       <div class="form-group">
-        <label for="days" class="control-label">
-          Days
+        <label for="port_of_entry" class="control-label">
+          Port of entry
         </label>
 
-        <input type="text" id="days" name="days" placeholder="Days" class="form-control" value="<%= @stay.days %>">
+        <input type="text" id="port_of_entry" name="port_of_entry" placeholder="Port of entry" class="form-control" value="<%= @stay.port_of_entry %>">
       </div>
 
-      <!-- Label and input for entry_date -->
+      <!-- Label and input for number_of_days -->
       <div class="form-group">
-        <label for="entry_date" class="control-label">
-          Entry date
+        <label for="number_of_days" class="control-label">
+          Number of days
         </label>
 
-        <input type="text" id="entry_date" name="entry_date" placeholder="Entry date" class="form-control" value="<%= @stay.entry_date %>">
+        <input type="text" id="number_of_days" name="number_of_days" placeholder="Number of days" class="form-control" value="<%= @stay.number_of_days %>">
       </div>
 
       <!-- Label and input for exit_date -->
@@ -90,13 +90,13 @@
         <input type="text" id="exit_date" name="exit_date" placeholder="Exit date" class="form-control" value="<%= @stay.exit_date %>">
       </div>
 
-      <!-- Label and input for username -->
+      <!-- Label and input for entry_date -->
       <div class="form-group">
-        <label for="username" class="control-label">
-          Username
+        <label for="entry_date" class="control-label">
+          Entry date
         </label>
 
-        <input type="text" id="username" name="username" placeholder="Username" class="form-control" value="<%= @stay.username %>">
+        <input type="text" id="entry_date" name="entry_date" placeholder="Entry date" class="form-control" value="<%= @stay.entry_date %>">
       </div>
 
       <button class="btn btn-warning">

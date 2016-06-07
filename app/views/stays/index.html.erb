@@ -5,47 +5,33 @@
   </h1>
 </div>
 
-<%= search_form_for @q do |f| %>
-  <p class="lead">Filter by date:</p>
-
-  <div class="form-group">
-    <%= f.label :entry_date, "From" %>
-    <%= f.text_field :entry_date, :class => "form-control", :placeholder => "Enter a date" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :exit_date, "To" %>
-    <%= f.text_field :exit_date, :class => "form-control", :placeholder => "Enter a date" %>
-  </div>
-
-  <%= f.submit :class => "btn btn-primary btn-block" %>
-
-  <a href="/movies" class="btn btn-default btn-block">Clear filters</a>
-<% end %>
-
 <div class="row">
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Entry date</th>
-        <th>Port of entry</th>
-        <th>Exit date</th>
-        <th>Port of exit</th>
-        <th>Days</th>
-        <th>Reason</th>
+        <th>User</th>
+        <th>Notes</th>
         <th>Visa status</th>
+        <th>Reason for stay</th>
+        <th>Port of exit</th>
+        <th>Port of entry</th>
+        <th>Number of days</th>
+        <th>Exit date</th>
+        <th><%= sort_link(@q, :entry_date, [:entry_date, 'kind DESC'], 'Entry date') %> </th>
         <th>Actions</th>
       </tr>
 
       <% @stays.each do |stay| %>
       <tr>
-        <td><%= stay.entry_date %></td>
-        <td><%= stay.port_of_entry %></td>
-        <td><%= stay.exit_date %></td>
-        <td><%= stay.port_of_exit %></td>
-        <td><%= stay.days %></td>
-        <td><%= stay.reason %></td>
+        <td><%= stay.user_id %></td>
+        <td><%= stay.notes %></td>
         <td><%= stay.visa_status %></td>
+        <td><%= stay.reason_for_stay %></td>
+        <td><%= stay.port_of_exit %></td>
+        <td><%= stay.port_of_entry %></td>
+        <td><%= stay.number_of_days %></td>
+        <td><%= stay.exit_date %></td>
+        <td><%= stay.entry_date %></td>
         <td>
           <a href="/stays/<%= stay.id %>" class="btn btn-primary">Show</a>
           <a href="/stays/<%= stay.id %>/edit" class="btn btn-warning">Edit</a>

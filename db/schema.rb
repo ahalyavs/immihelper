@@ -11,18 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605221032) do
+ActiveRecord::Schema.define(version: 20160607194927) do
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stays", force: :cascade do |t|
     t.string   "user_id"
+    t.string   "notes"
     t.string   "visa_status"
-    t.string   "reason"
-    t.string   "port_of_entry"
+    t.string   "reason_for_stay"
     t.string   "port_of_exit"
-    t.float    "days"
-    t.date     "entry_date"
+    t.string   "port_of_entry"
+    t.float    "number_of_days"
     t.date     "exit_date"
-    t.string   "username"
+    t.date     "entry_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

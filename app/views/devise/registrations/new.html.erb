@@ -4,8 +4,8 @@
   <%= devise_error_messages! %>
 
   <div class="field form-group">
-    <%= f.label :username %>
-    <%= f.text_field :username, autofocus: true, :class => "form-control" %>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "hello@example.com" %>
   </div>
 
   <div class="field form-group">
@@ -33,22 +33,12 @@
 
   <div class="field form-group">
     <%= f.label :dob %>
-    <%= f.text_field :dob, autofocus: true, :class => "form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, :class => "form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label :phone %>
-    <%= f.number_field :phone, autofocus: true, :class => "form-control" %>
+    <%= f.text_field :dob, autofocus: true, :class => "form-control", :placeholder => "dd/mm/yyyy" %>
   </div>
 
   <div class="field form-group">
     <%= f.label :nationality %>
-    <%= f.text_field :nationality, autofocus: true, :class => "form-control" %>
+    <%= f.collection_select :nationality, Country.all, :name, :name, autofocus: true %>
   </div>
 
   <div class="actions">
