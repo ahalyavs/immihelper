@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # READ
   get "/stays", :controller => "stays", :action => "index"
+  get "/print/:user_id", :controller => "stays", :action => "print"
   get "/stays/:id", :controller => "stays", :action => "show"
 
   # UPDATE

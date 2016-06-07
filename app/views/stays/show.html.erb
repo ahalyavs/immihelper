@@ -1,15 +1,24 @@
 <div class="page-header">
-  <h3>Stay #<%= @stay.id %></h3>
+  <h3>Your stay in <%= @stay.port_of_entry %> from <%= @stay.entry_date %> to <%= @stay.exit_date %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt>User</dt>
-      <dd><%= @stay.user_id %></dd>
+      <dt>Entry date</dt>
+      <dd><%= @stay.entry_date %></dd>
 
-      <dt>Notes</dt>
-      <dd><%= @stay.notes %></dd>
+      <dt>Port of entry</dt>
+      <dd><%= @stay.port_of_entry %></dd>
+
+      <dt>Exit date</dt>
+      <dd><%= @stay.exit_date %></dd>
+
+      <dt>Port of exit</dt>
+      <dd><%= @stay.port_of_exit %></dd>
+
+      <dt>Number of days</dt>
+      <dd><%= @stay.number_of_days %></dd>
 
       <dt>Visa status</dt>
       <dd><%= @stay.visa_status %></dd>
@@ -17,20 +26,8 @@
       <dt>Reason for stay</dt>
       <dd><%= @stay.reason_for_stay %></dd>
 
-      <dt>Port of exit</dt>
-      <dd><%= @stay.port_of_exit %></dd>
-
-      <dt>Port of entry</dt>
-      <dd><%= @stay.port_of_entry %></dd>
-
-      <dt>Number of days</dt>
-      <dd><%= @stay.number_of_days %></dd>
-
-      <dt>Exit date</dt>
-      <dd><%= @stay.exit_date %></dd>
-
-      <dt>Entry date</dt>
-      <dd><%= @stay.entry_date %></dd>
+      <dt>Notes</dt>
+      <dd><%= @stay.notes %></dd>
 
     </dl>
 

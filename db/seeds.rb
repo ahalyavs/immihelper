@@ -257,3 +257,62 @@ country_list = [
 country_list.each do |name|
   Country.create(name: name)
 end
+
+visa_list = [
+  "A-1",
+  "A-2",
+  "A-3",
+  "B-1",
+  "B-2",
+  "B-1/B-2",
+  "C Transit Visa",
+  "C-1/D",
+  "D",
+  "E-1",
+  "E-2",
+  "E-3/E-3D/E-3R",
+  "F-1",
+  "F-2",
+  "F-3",
+  "G-1",
+  "G-2",
+  "G-3",
+  "G-4",
+  "G-5",
+  "H-1B",
+  "H-1B1",
+  "H-1C",
+  "H-2A",
+  "H-2B",
+  "H-3",
+  "I",
+  "J-1",
+  "J-2",
+  "K-1",
+  "K-2",
+  "K-3",
+  "K-4",
+  "L-1",
+  "L-2",
+  "M-1",
+  "M-2",
+  "M-3",
+  "NATO 1-7",
+  "O 1-3",
+  "P-1",
+  "P-2",
+  "P-3",
+  "P-4",
+  "Q-1",
+  "Q 2-3",
+  "R 1-2",
+  "S 5-7",
+  "T 1-5",
+  "TN or TD",
+  "U 1-5",
+  "V 1-3"
+]
+
+visa_list.each do |status|
+  Visa.create(status: status)
+end

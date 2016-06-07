@@ -21,9 +21,9 @@ class StaysController < ApplicationController
     @stay.reason_for_stay = params[:reason_for_stay]
     @stay.port_of_exit = params[:port_of_exit]
     @stay.port_of_entry = params[:port_of_entry]
-    @stay.exit_date = params[:exit_date]
-    @stay.entry_date = params[:entry_date]
-    @stay.number_of_days = @stay.exit_date - @stay.entry_date
+    @stay.exit_date = Chronic.parse(params[:exit_date])
+    @stay.entry_date = Chronic.parse(params[:entry_date])
+    @stay.number_of_days = (@stay.exit_date - @stay.entry_date).to_i
 
     if @stay.save
       redirect_to "/stays", :notice => "Stay created successfully."
@@ -62,5 +62,10 @@ class StaysController < ApplicationController
     @stay.destroy
 
     redirect_to "/stays", :notice => "Stay deleted."
+  end
+
+  def print
+    @stay = Stay.find(params[:user_id])
+    render 'print'
   end
 end

@@ -20,39 +20,35 @@
 
       <!-- Label and input for user_id -->
       <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @stay.user_id %>">
+        <input type="hidden" id="user_id" name="user_id" value="<%= @stay.user_id %>">
       </div>
 
-      <!-- Label and input for notes -->
+      <!-- Label and input for entry_date -->
+    <div class="form-group">
+      <label for="entry_date" class="control-label">
+        Entry date
+      </label>
+
+        <input type="text" id="entry_date" name="entry_date" placeholder="dd/mm/yyyy" class="form-control" value="<%= @stay.entry_date %>">
+    </div>
+
+      <!-- Label and input for port_of_entry -->
       <div class="form-group">
-        <label for="notes" class="control-label">
-          Notes
+        <label for="port_of_entry" class="control-label">
+          Port of entry
         </label>
 
-        <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="<%= @stay.notes %>">
+        <input type="text" id="port_of_entry" name="port_of_entry" placeholder="Port of entry" class="form-control" value="<%= @stay.port_of_entry %>">
       </div>
 
-      <!-- Label and input for visa_status -->
+      <!-- Label and input for exit_date -->
+
       <div class="form-group">
-        <label for="visa_status" class="control-label">
-          Visa status
+        <label for="exit_date" class="control-label">
+          Exit date
         </label>
 
-        <%= select_tag :visa_status, options_for_select(["example", "TBD"], @stay.visa_status), class: "form-control" %>
-
-      </div>
-
-      <!-- Label and input for reason_for_stay -->
-      <div class="form-group">
-        <label for="reason_for_stay" class="control-label">
-          Reason for stay
-        </label>
-
-        <input type="text" id="reason_for_stay" name="reason_for_stay" placeholder="Reason for stay" class="form-control" value="<%= @stay.reason_for_stay %>">
+          <input type="text" id="exit_date" name="exit_date" placeholder="dd/mm/yyyy" class="form-control" value="<%= @stay.exit_date %>">
       </div>
 
       <!-- Label and input for port_of_exit -->
@@ -64,40 +60,31 @@
         <input type="text" id="port_of_exit" name="port_of_exit" placeholder="Port of exit" class="form-control" value="<%= @stay.port_of_exit %>">
       </div>
 
-      <!-- Label and input for port_of_entry -->
+      <!-- Label and input for visa_status -->
       <div class="form-group">
-        <label for="port_of_entry" class="control-label">
-          Port of entry
+        <label for="visa_status" class="control-label">
+          Visa status
         </label>
 
-        <input type="text" id="port_of_entry" name="port_of_entry" placeholder="Port of entry" class="form-control" value="<%= @stay.port_of_entry %>">
+        <%= select_tag :visa_status, options_for_select(Visa.pluck(:status)), class: "form-control", :prompt => "Select from list" %>
       </div>
 
-      <!-- Label and input for number_of_days -->
+      <!-- Label and input for reason_for_stay -->
       <div class="form-group">
-        <label for="number_of_days" class="control-label">
-          Number of days
+        <label for="reason_for_stay" class="control-label">
+          Reason for stay
         </label>
 
-        <input type="text" id="number_of_days" name="number_of_days" placeholder="Number of days" class="form-control" value="<%= @stay.number_of_days %>">
+        <input type="text" id="reason_for_stay" name="reason_for_stay" placeholder="Reason for stay" class="form-control" value="<%= @stay.reason_for_stay %>">
       </div>
 
-      <!-- Label and input for exit_date -->
+      <!-- Label and input for notes -->
       <div class="form-group">
-        <label for="exit_date" class="control-label">
-          Exit date
+        <label for="notes" class="control-label">
+          Notes
         </label>
 
-        <input type="text" id="exit_date" name="exit_date" placeholder="Exit date" class="form-control" value="<%= @stay.exit_date %>">
-      </div>
-
-      <!-- Label and input for entry_date -->
-      <div class="form-group">
-        <label for="entry_date" class="control-label">
-          Entry date
-        </label>
-
-        <input type="text" id="entry_date" name="entry_date" placeholder="Entry date" class="form-control" value="<%= @stay.entry_date %>">
+        <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="<%= @stay.notes %>">
       </div>
 
       <button class="btn btn-success">
