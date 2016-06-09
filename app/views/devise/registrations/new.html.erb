@@ -38,7 +38,7 @@
 
   <div class="field form-group">
     <%= f.label :nationality %>
-    <%= f.collection_select :nationality, Country.all, :name, :name, autofocus: true %>
+    <%= f.collection_select :nationality, Country.all, :name, :name, :html_options => { class: "form-control" } %>
   </div>
 
   <div class="actions">

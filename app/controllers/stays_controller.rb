@@ -50,8 +50,9 @@ class StaysController < ApplicationController
     @stay.port_of_exit = params[:port_of_exit]
     @stay.port_of_entry = params[:port_of_entry]
     @stay.number_of_days = params[:number_of_days]
-    @stay.exit_date = params[:exit_date]
-    @stay.entry_date = params[:entry_date]
+    @stay.exit_date = Chronic.parse(params[:exit_date])
+    @stay.entry_date = Chronic.parse(params[:entry_date])
+    @stay.number_of_days = (@stay.exit_date - @stay.entry_date).to_i
 
     if @stay.save
       redirect_to "/stays", :notice => "Stay updated successfully."
