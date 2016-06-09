@@ -268,6 +268,7 @@ visa_list = [
   "C Transit Visa",
   "C-1/D",
   "D",
+  "ESTA Visa Waiver Tourist",
   "E-1",
   "E-2",
   "E-3/E-3D/E-3R",

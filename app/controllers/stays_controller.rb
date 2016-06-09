@@ -1,7 +1,11 @@
 class StaysController < ApplicationController
   def index
     @q = Stay.ransack(params[:q])
-    @stays = @q.result
+    if current_user != nil
+      @stays = current_user.stays
+    else
+      @stays = @q.result
+    end
     render 'index'
   end
 
@@ -65,7 +69,7 @@ class StaysController < ApplicationController
   end
 
   def print
-    @stay = Stay.find(params[:user_id])
+    @stays = User.all.find(params[:id]).stays
     render 'print'
   end
 end

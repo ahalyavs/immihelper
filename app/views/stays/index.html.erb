@@ -1,49 +1,72 @@
 <div class="page-header">
-  <h1>
-    <%= current_user.first_name %>'s stays in the US
-  </h1>
+    <% if current_user != nil %>
+      <h1>
+        <%= current_user.first_name %>'s stays in the US
+      </h1>
+    <% else %>
+    <h1>
+      Welcome to Immihelper
+    </h1>
+    <h3>
+      One portal to keep track of all your US trips.
+    </h3>
+    <% end %>
 </div>
 
-<h1><%= @stays.user_id %></h1>
+<% if current_user != nil %>
+  <div class="">
+    <a href="/stays/new" class="btn btn-md btn-success">Add a New Stay</a>
+  </div>
 
-<div class="">
-  <a href="/stays/new" class="btn btn-md btn-success">Add a New Stay</a>
-</div>
+  <br>
 
-<br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped table-hover">
+          <tr>
+            <th><%= sort_link(@q, :entry_date, [:entry_date, 'kind DESC'], 'Entry date') %> </th>
+            <th>Port of entry</th>
+            <th><%= sort_link(@q, :exit_date, [:exit_date, 'kind DESC'], 'Exit date') %> </th>
+            <th>Port of exit</th>
+            <th>Number of days</th>
+            <th>Visa status</th>
+            <th>Reason for stay</th>
+            <th>Actions</th>
+          </tr>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-striped table-hover">
-        <tr>
-          <th><%= sort_link(@q, :entry_date, [:entry_date, 'kind DESC'], 'Entry date') %> </th>
-          <th>Port of entry</th>
-          <th><%= sort_link(@q, :exit_date, [:exit_date, 'kind DESC'], 'Exit date') %> </th>
-          <th>Port of exit</th>
-          <th>Number of days</th>
-          <th>Visa status</th>
-          <th>Reason for stay</th>
-          <th>Actions</th>
-        </tr>
-
-        <% @stays.each do |stay| %>
-        <tr>
-          <td><%= stay.entry_date %></td>
-          <td><%= stay.port_of_entry %></td>
-          <td><%= stay.exit_date %></td>
-          <td><%= stay.port_of_exit %></td>
-          <td><%= stay.number_of_days %></td>
-          <td><%= stay.visa_status %></td>
-          <td><%= stay.reason_for_stay %></td>
-          <td>
-            <a href="/stays/<%= stay.id %>" class="btn btn-primary btn-sm">Show</a>
-            <a href="/stays/<%= stay.id %>/edit" class="btn btn-warning btn-sm">Edit</a>
-            <a href="/delete_stay/<%= stay.id %>" class="btn btn-danger btn-sm" rel="nofollow">Delete</a>
-          </td>
-        </tr>
-        <% end %>
-      </table>
+          <% @stays.each do |stay| %>
+          <tr>
+            <td><%= stay.entry_date %></td>
+            <td><%= stay.port_of_entry %></td>
+            <td><%= stay.exit_date %></td>
+            <td><%= stay.port_of_exit %></td>
+            <td><%= stay.number_of_days %></td>
+            <td><%= stay.visa_status %></td>
+            <td><%= stay.reason_for_stay %></td>
+            <td>
+              <a href="/stays/<%= stay.id %>" class="btn btn-primary btn-sm">Show</a>
+              <a href="/stays/<%= stay.id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+              <a href="/delete_stay/<%= stay.id %>" class="btn btn-danger btn-sm" rel="nofollow">Delete</a>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
     </div>
   </div>
-</div>
+<% else %>
+  <div class="row">
+    <div class="col-md-6">
+      <a href="/users/sign_in" class="btn btn-lg btn-success btn-block">Sign In</a>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-md-6">
+      <a href="/users/sign_up" class="btn btn-lg btn-success btn-block">Create an account</a>
+    </div>
+  </div>
+<% end %>

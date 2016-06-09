@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   validates :nationality, :presence => true
 
   has_many :stays
+
 end

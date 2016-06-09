@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # READ
   get "/stays", :controller => "stays", :action => "index"
-  get "/print/:user_id", :controller => "stays", :action => "print"
+  get "/print/:id", :controller => "stays", :action => "print"
   get "/stays/:id", :controller => "stays", :action => "show"
 
   # UPDATE
@@ -18,15 +18,9 @@ Rails.application.routes.draw do
   get "/delete_stay/:id", :controller => "stays", :action => "destroy"
   #------------------------------
 
-  #Welcome page
-  get "/welcome", :controller => "landing", :action => "welcome"
-
   #users
   devise_for :users
   root 'stays#index'
-
-  # devise_scope :user do get "users/sign_in" => "devise/sessions#new"
-  # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
