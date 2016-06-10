@@ -2,7 +2,7 @@ class StaysController < ApplicationController
   def index
     @q = Stay.ransack(params[:q])
     if current_user != nil
-      @stays = current_user.stays
+      @stays2 = current_user.stays
     else
       @stays = @q.result
     end
