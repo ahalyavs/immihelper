@@ -1,9 +1,10 @@
 class StaysController < ApplicationController
   def index
-    @q = Stay.ransack(params[:q])
     if current_user != nil
-      @stays = current_user.stays
+      @q = current_user.stays.ransack(params[:q])
+      @stays = @q.result
     else
+      @q = Stay.ransack(params[:q])
       @stays = @q.result
     end
     render 'index'
